@@ -1,0 +1,38 @@
+<label>
+  Show Random
+  <input type="checkbox" data-toggle="toggle"
+  id="plOrder"
+  class="plOrder" name="order"/>
+</label>
+<div class="btn-group">
+  <button type="button" id="dLabel" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false">
+    add item <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu addItem multi-level" aria-labelledby="dLabel">
+    <li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addImage">Image</a></li>
+    <li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addYoutube">Youtube</a></li>
+    <li class="dropdown-submenu hidden">
+      <a class="test" tabindex="-1" href="#">Facebook</a>
+      <ul class="dropdown-menu addItem" aria-labelledby="dLabel">
+        <li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addFacebookPost">Post</a></li>
+        <li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addFacebookVideo">Video</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<button type="button" class="btn btn-info playNext">Play next</button>
+<div class="btn-group">
+  <div class="playlistStatus">
+    <input type="checkbox" data-toggle="toggle" data-on="Enabled" data-off="Disabled" name="enabled" data-width="94" class="form-control">
+  </div>
+</div>
+<div class="btn-group playlistOptions">
+  <form action="index/updateConfig" method="post">
+    Default duration: <input type="number" name="defaultDuration" value=""
+                             class="durationInput plDuration" min="1" max="600">s
+  </form>
+</div>
