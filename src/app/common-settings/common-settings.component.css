@@ -1,0 +1,9 @@
+.switch {
+    position: relative;
+}
+
+.order-switch {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}

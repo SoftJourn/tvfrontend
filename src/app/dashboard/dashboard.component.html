@@ -1,4 +1,4 @@
 <div class="container">
   <app-header></app-header>
-  <app-body></app-body>
+  <app-body *ngIf="playlist" [playlist]="playlist"></app-body>
 </div>

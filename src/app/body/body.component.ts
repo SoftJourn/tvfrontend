@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-body',
@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BodyComponent implements OnInit {
 
-  constructor() { }
+  @Input() playlist;
 
-  ngOnInit() {
+  public items;
+  public order;
+  public defaultDuration;
+
+  constructor() {
   }
 
+  ngOnInit() {
+    this.items = this.playlist.items;
+    this.order = this.playlist.order;
+    this.defaultDuration = this.playlist.defaultDuration;
+  }
 }

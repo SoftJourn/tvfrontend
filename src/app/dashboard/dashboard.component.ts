@@ -1,15 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {DashboardService} from './dashboard.service';
+import {Subscription} from 'rxjs/Subscription';
+import {Item} from '../item/item.model';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+    selector: 'app-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+    playlistSubscription: Subscription;
+    public playlist;
 
-  ngOnInit() {
-  }
+    constructor(private dashboardService: DashboardService) {
+    }
+
+
+    ngOnInit() {
+        this.playlistSubscription = this.dashboardService.getPlaylist().subscribe(
+            (playlist) => {
+                this.playlist = playlist;
+            }
+        );
+    }
+
+    ngOnDestroy() {
+        this.playlistSubscription.unsubscribe();
+    }
 
 }

@@ -1,2 +1,8 @@
-<app-common-settings></app-common-settings>
-<app-item></app-item>
+<div class="row general-settings">
+    <app-common-settings [plOrder]="order" [defaultDuration]="defaultDuration"></app-common-settings>
+</div>
+<div class="row playlist">
+    <app-item *ngFor="let item of items; let i = index"
+              [item]="item"
+              [index]="i"></app-item>
+</div>
