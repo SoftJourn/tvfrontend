@@ -12,11 +12,11 @@ export class DashboardService {
 
     getPlaylist() {
         //return this.authHttp.get(AppSettings.API_URL + 'api_playlist')
-        return this.http.get(AppSettings.API_URL + 'playlist.json')
+        return this.http.get(AppSettings.API_URL + 'playlist.json')// todo try catch error handling
             .map(
                 (response: Response) => {
-                    const playlist = response.json();
-                    return playlist;
+                    // const playlist = ;
+                    return response.json();
                 }
             );
     };

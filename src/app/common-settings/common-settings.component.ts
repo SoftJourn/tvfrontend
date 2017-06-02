@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {SettingsService} from './settings.service';
-import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 
 
@@ -42,7 +41,7 @@ export class CommonSettingsComponent implements OnInit {
 
     playNext() {
         this.settings.playNext().subscribe(
-            (data) => {
+            (data) => { 
                 console.log(data);
             },
             () => {

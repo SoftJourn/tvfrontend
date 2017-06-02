@@ -16,7 +16,9 @@ import {DashboardService} from './dashboard/dashboard.service';
 import {Http} from '@angular/http';
 import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import {SettingsService} from './common-settings/settings.service';
-// import {UiSwitchModule} from 'angular2-ui-switch';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MdButtonModule, MdCheckboxModule} from '@angular/material';
+import 'hammerjs';
 
 export function getAuthHttp(http) {
     return new AuthHttp(new AuthConfig({
@@ -41,7 +43,9 @@ export function getAuthHttp(http) {
         FormsModule,
         HttpModule,
         AppRotingModule,
-        // UiSwitchModule
+        BrowserAnimationsModule,
+        MdButtonModule,
+        MdCheckboxModule
     ],
     providers: [
         LoginService,

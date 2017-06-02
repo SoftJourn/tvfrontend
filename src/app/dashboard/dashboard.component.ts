@@ -21,7 +21,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         this.playlistSubscription = this.dashboardService.getPlaylist().subscribe(
             (playlist) => {
                 this.playlist = playlist;
-            }
+            } // обробка еррорів
         );
     }
 
