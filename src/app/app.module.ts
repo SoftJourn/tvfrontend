@@ -17,8 +17,7 @@ import {Http} from '@angular/http';
 import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import {SettingsService} from './common-settings/settings.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MdButtonModule, MdCheckboxModule} from '@angular/material';
-import 'hammerjs';
+import {NglModule} from 'ng-lightning/ng-lightning';
 
 export function getAuthHttp(http) {
     return new AuthHttp(new AuthConfig({
@@ -44,8 +43,7 @@ export function getAuthHttp(http) {
         HttpModule,
         AppRotingModule,
         BrowserAnimationsModule,
-        MdButtonModule,
-        MdCheckboxModule
+        NglModule.forRoot()
     ],
     providers: [
         LoginService,

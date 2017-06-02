@@ -1,27 +1,53 @@
 <div class="col-md-2">
-    <div class="col-md-6">
-    </div>
+    <ngl-form-checkbox-toggle label="Show Random" class="order-playlist">
+        <input type="checkbox"/>
+    </ngl-form-checkbox-toggle>
 </div>
 
 <div class="col-md-2">
-    <button type="button" id="dLabel" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false">
-        add item <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu addItem multi-level" aria-labelledby="dLabel">
-        <li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addImage">Image</a></li>
-        <li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addYoutube">Youtube</a></li>
-        <li class="dropdown-submenu hidden">
-            <a class="test" tabindex="-1" href="#">Facebook</a>
-            <ul class="dropdown-menu addItem" aria-labelledby="dLabel">
-                <li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addFacebookPost">Post</a>
-                </li>
-                <li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addFacebookVideo">Video</a>
+    <span nglDropdown [(open)]="open">
+        <button class="slds-button slds-button--neutral" nglDropdownTrigger>
+            <span class="slds-truncate">add item</span>
+            <ngl-icon icon="down" type="default" size="x-small"></ngl-icon>
+        </button>
+        <div class="slds-dropdown slds-dropdown--left">
+            <ul class="dropdown__list" role="menu">
+                <li class="slds-dropdown__item">
+                    <a role="menuitem" nglDropdownItem>
+                        <p class="slds-truncate">Image</p>
+                        <ngl-icon type="default" size="x-small"></ngl-icon>
+                    </a>
                 </li>
             </ul>
-        </li>
-    </ul>
+            <ul class="dropdown__list" role="menu">
+                <li class="slds-dropdown__item">
+                    <a role="menuitem" nglDropdownItem>
+                        <p class="slds-truncate">Youtube</p>
+                        <ngl-icon type="default" size="x-small"></ngl-icon>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </span>
+
+    <!--<button type="button" id="dLabel" class="btn btn-default dropdown-toggle" data-toggle="dropdown"-->
+            <!--aria-haspopup="true"-->
+            <!--aria-expanded="false">-->
+        <!--add item <span class="caret"></span>-->
+    <!--</button>-->
+    <!--<ul class="dropdown-menu addItem multi-level" aria-labelledby="dLabel">-->
+        <!--<li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addImage">Image</a></li>-->
+        <!--<li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addYoutube">Youtube</a></li>-->
+        <!--<li class="dropdown-submenu hidden">-->
+            <!--<a class="test" tabindex="-1" href="#">Facebook</a>-->
+            <!--<ul class="dropdown-menu addItem" aria-labelledby="dLabel">-->
+                <!--<li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addFacebookPost">Post</a>-->
+                <!--</li>-->
+                <!--<li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addFacebookVideo">Video</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</li>-->
+    <!--</ul>-->
 </div>
 
 <div class="col-md-2">
@@ -29,7 +55,7 @@
 </div>
 
 <div class="col-md-2">
-
+    Enabled Items
 </div>
 
 <div class="col-md-2">
