@@ -7,9 +7,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class BodyComponent implements OnInit {
 
-  @Input() playlist;
-
-  public items;
+  @Input() items;
   public order;
   public defaultDuration;
 
@@ -17,8 +15,7 @@ export class BodyComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.items = this.playlist.items;
-    this.order = this.playlist.order;
-    this.defaultDuration = this.playlist.defaultDuration;
+    // this.order = this.playlist.order;
+    // this.defaultDuration = this.playlist.defaultDuration;
   }
 }

@@ -10,7 +10,7 @@ export class DashboardService {
     constructor(public authHttp: AuthHttp) {
     }
 
-    getPlaylist() {
+    getItems() {
         return this.authHttp.get(AppSettings.API_URL + 'api/items')
         // return this.http.get(AppSettings.API_URL + 'playlist.json')// todo try catch error handling
             .map(

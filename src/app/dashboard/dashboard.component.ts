@@ -11,16 +11,16 @@ import {Item} from '../item/item.model';
 export class DashboardComponent implements OnInit, OnDestroy {
 
     playlistSubscription: Subscription;
-    public playlist;
+    public items;
 
     constructor(private dashboardService: DashboardService) {
     }
 
 
     ngOnInit() {
-        this.playlistSubscription = this.dashboardService.getPlaylist().subscribe(
-            (playlist) => {
-                this.playlist = playlist;
+        this.playlistSubscription = this.dashboardService.getItems().subscribe(
+            (items) => {
+                this.items = items;
             } // обробка еррорів
         );
     }
