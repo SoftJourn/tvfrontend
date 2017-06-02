@@ -1,66 +1,51 @@
-<div class="col-md-2">
+<div class="row">
+<div class="col-2">
     <ngl-form-checkbox-toggle label="Show Random" class="order-playlist">
-        <input type="checkbox"/>
+        <input nglFormControl type="checkbox"/>
     </ngl-form-checkbox-toggle>
 </div>
 
-<div class="col-md-2">
-    <span nglDropdown [(open)]="open">
-        <button class="slds-button slds-button--neutral" nglDropdownTrigger>
-            <span class="slds-truncate">add item</span>
-            <ngl-icon icon="down" type="default" size="x-small"></ngl-icon>
-        </button>
-        <div class="slds-dropdown slds-dropdown--left">
-            <ul class="dropdown__list" role="menu">
-                <li class="slds-dropdown__item">
-                    <a role="menuitem" nglDropdownItem>
-                        <p class="slds-truncate">Image</p>
-                        <ngl-icon type="default" size="x-small"></ngl-icon>
-                    </a>
-                </li>
-            </ul>
-            <ul class="dropdown__list" role="menu">
-                <li class="slds-dropdown__item">
-                    <a role="menuitem" nglDropdownItem>
-                        <p class="slds-truncate">Youtube</p>
-                        <ngl-icon type="default" size="x-small"></ngl-icon>
-                    </a>
-                </li>
-            </ul>
+<div class="col-2">
+    <div ngbDropdown class="d-inline-block">
+        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Add item</button>
+        <div class="dropdown-menu" aria-labelledby="dropdownBasic1">
+            <button class="dropdown-item">Action - 1</button>
+            <button class="dropdown-item">Another Action</button>
+            <button class="dropdown-item">Something else is here</button>
         </div>
-    </span>
-
+    </div>
     <!--<button type="button" id="dLabel" class="btn btn-default dropdown-toggle" data-toggle="dropdown"-->
-            <!--aria-haspopup="true"-->
-            <!--aria-expanded="false">-->
-        <!--add item <span class="caret"></span>-->
+    <!--aria-haspopup="true"-->
+    <!--aria-expanded="false">-->
+    <!--add item <span class="caret"></span>-->
     <!--</button>-->
     <!--<ul class="dropdown-menu addItem multi-level" aria-labelledby="dLabel">-->
-        <!--<li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addImage">Image</a></li>-->
-        <!--<li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addYoutube">Youtube</a></li>-->
-        <!--<li class="dropdown-submenu hidden">-->
-            <!--<a class="test" tabindex="-1" href="#">Facebook</a>-->
-            <!--<ul class="dropdown-menu addItem" aria-labelledby="dLabel">-->
-                <!--<li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addFacebookPost">Post</a>-->
-                <!--</li>-->
-                <!--<li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addFacebookVideo">Video</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</li>-->
+    <!--<li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addImage">Image</a></li>-->
+    <!--<li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addYoutube">Youtube</a></li>-->
+    <!--<li class="dropdown-submenu hidden">-->
+    <!--<a class="test" tabindex="-1" href="#">Facebook</a>-->
+    <!--<ul class="dropdown-menu addItem" aria-labelledby="dLabel">-->
+    <!--<li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addFacebookPost">Post</a>-->
+    <!--</li>-->
+    <!--<li><a href="#" data-toggle="modal" data-backdrop="static" data-target="#addFacebookVideo">Video</a>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</li>-->
     <!--</ul>-->
 </div>
 
-<div class="col-md-2">
+<div class="col-2">
     <button type="button" class="btn btn-info" (click)="playNext()">Play next</button>
 </div>
 
-<div class="col-md-2">
+<div class="col-2">
     Enabled Items
 </div>
 
-<div class="col-md-2">
+<div class="col-3">
     <div class="btn-group playlistOptions pull-right">
         Default duration: <input type="number" [(ngModel)]="defaultDuration" (focusout)="defaultDurationChange()"
                                  class="durationInput plDuration" min="1" max="600">s
     </div>
+</div>
 </div>

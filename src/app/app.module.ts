@@ -18,6 +18,7 @@ import {AuthHttp, AuthConfig} from 'angular2-jwt';
 import {SettingsService} from './common-settings/settings.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NglModule} from 'ng-lightning/ng-lightning';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 export function getAuthHttp(http) {
     return new AuthHttp(new AuthConfig({
@@ -43,7 +44,8 @@ export function getAuthHttp(http) {
         HttpModule,
         AppRotingModule,
         BrowserAnimationsModule,
-        NglModule.forRoot()
+        NglModule.forRoot(),
+        NgbModule.forRoot()
     ],
     providers: [
         LoginService,
