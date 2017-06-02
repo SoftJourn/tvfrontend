@@ -16,10 +16,11 @@ export class LoginService {
     }
 
     login(login: string, password: string): Observable<boolean> {
-        return this.http.post(AppSettings.API_URL + 'api_login', JSON.stringify({username: login, password: password}))
+        return this.http.post(AppSettings.API_URL + 'api/login', JSON.stringify({username: login, password: password}))
             .map((response: Response) => {
-                if (response.json() && response.json().token) {
-                    localStorage.setItem('token', JSON.stringify(response.json().token));
+                if (response.json().status === true && response.json().token) {
+                    localStorage.setItem('token', response.json().token);
+                    console.log(response.json().token);
                     this.token = response.json().token;
                     this.isLogin = true;
                     return true;
