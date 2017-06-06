@@ -11,7 +11,7 @@ export class ItemComponent implements OnInit {
 
   @Input() items;
 
-  apiUrl = AppSettings.API_URL;
+  apiServer = AppSettings.API_SERVER;
 
   constructor() { }
 

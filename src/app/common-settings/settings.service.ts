@@ -1,46 +1,41 @@
-import { Injectable } from '@angular/core';
-import {Http, Response} from '@angular/http';
-import 'rxjs/add/operator/map';
+import {Injectable} from '@angular/core';
+import {Response} from '@angular/http';
 import {AppSettings} from '../config/app.config';
 import {AuthHttp} from 'angular2-jwt';
+import {Observable} from 'rxjs/Rx';
 
-const orderUrl = 'api_playlist/order';
-const durationUrl = 'api_playlist/order';
-const playNextUrl = 'api_playlist/order';
+const playNextUrl = '/playlist/playNext';
 
 @Injectable()
 export class SettingsService {
 
-  constructor(private http: Http) {}
+    private settingsUrl = '/settings';
 
-  saveOrder(value) {
-    return this.http.put(AppSettings.API_URL + orderUrl, JSON.stringify({value: value, abra: 'cadabra'}))
-        .map(
-            (response: Response) => {
-              const data = response.json();
-              return data;
-            }
-        );
-  }
+    constructor(private authHttp: AuthHttp) {
+    }
 
-  saveDefDuration(value) {
-    return this.http.put(AppSettings.API_URL + durationUrl, JSON.stringify({value: value}))
-        .map(
-            (response: Response) => {
-              const data = response.json();
-              return data;
-            }
-        );
-  }
+    getSettings() {
+        return this.authHttp.get(AppSettings.API_URL + this.settingsUrl) // todo try catch error handling
+            .map((response: Response) => { return response.json(); })
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    };
 
-  playNext() {
-      return this.http.get(AppSettings.API_URL + playNextUrl)
-          .map(
-              (response: Response) => {
-                  const data = response.json();
-                  return data;
-              }
-          );
-  }
+    saveOrder(showRandom) {
+        return this.authHttp.post(AppSettings.API_URL + this.settingsUrl, JSON.stringify({order: showRandom}))
+            .map((response: Response) => { return response.json(); })
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    saveDefDuration(value) {
+        return this.authHttp.post(AppSettings.API_URL + this.settingsUrl, JSON.stringify({defaultDuration: value}))
+            .map((response: Response) => { return response.json(); })
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
+
+    playNext() {
+        return this.authHttp.get(AppSettings.API_URL + playNextUrl)
+            .map((response: Response) => { return response.json(); })
+            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+    }
 
 }

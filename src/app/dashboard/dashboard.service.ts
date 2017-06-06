@@ -7,15 +7,15 @@ import {AuthHttp} from 'angular2-jwt';
 @Injectable()
 export class DashboardService {
 
+    private itemsUrl = '/items';
+
     constructor(public authHttp: AuthHttp) {
     }
 
     getItems() {
-        return this.authHttp.get(AppSettings.API_URL + 'api/items')
-        // return this.http.get(AppSettings.API_URL + 'playlist.json')// todo try catch error handling
+        return this.authHttp.get(AppSettings.API_URL + this.itemsUrl) // todo try catch error handling
             .map(
                 (response: Response) => {
-                    console.log(response.json());
                     return response.json();
                 }
             );

@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {SettingsService} from './settings.service';
 import 'rxjs/Rx';
+import {Subscription} from "rxjs/Subscription";
 
 
 @Component({
@@ -8,23 +9,30 @@ import 'rxjs/Rx';
     templateUrl: './common-settings.component.html',
     styleUrls: ['./common-settings.component.css']
 })
-export class CommonSettingsComponent implements OnInit {
-
-    @Input() defaultDuration;
-    @Input() plOrder;
+export class CommonSettingsComponent implements OnInit, OnDestroy {
 
     public showRandom;
+    public order;
+    public defaultDuration;
+    settingsSubscription: Subscription;
 
     constructor(private settings: SettingsService) {
     }
 
     ngOnInit() {
-        this.showRandom = (this.plOrder === 'random');
+        this.settingsSubscription = this.settings.getSettings().subscribe(
+            (settings) => {
+                console.log(settings.order);
+                this.order = settings.order;
+                this.defaultDuration = settings.defaultDuration;
+                this.showRandom = (settings.order === 'random');
+            }
+        );
     }
 
     orderChange() {
-        this.plOrder = (this.plOrder === 'random') ? 'date' : 'random';
-        this.settings.saveOrder(this.plOrder).subscribe(
+        this.order = (this.order === 'random') ? 'date' : 'random';
+        this.settings.saveOrder(this.showRandom).subscribe(
             (data) => {
                 console.log(data);
             }
@@ -32,7 +40,7 @@ export class CommonSettingsComponent implements OnInit {
     }
 
     defaultDurationChange() {
-        this.settings.saveOrder(this.plOrder).subscribe(
+        this.settings.saveDefDuration(this.defaultDuration).subscribe(
             (data) => {
                 console.log(data);
             }
@@ -41,13 +49,14 @@ export class CommonSettingsComponent implements OnInit {
 
     playNext() {
         this.settings.playNext().subscribe(
-            (data) => { 
+            (data) => {
                 console.log(data);
-            },
-            () => {
-                console.log('complete');
             }
         );
+    }
+
+    ngOnDestroy() {
+        this.settingsSubscription.unsubscribe();
     }
 
 }

@@ -16,7 +16,7 @@ export class LoginService {
     }
 
     login(login: string, password: string): Observable<boolean> {
-        return this.http.post(AppSettings.API_URL + 'api/login', JSON.stringify({username: login, password: password}))
+        return this.http.post(AppSettings.API_URL + '/login', JSON.stringify({username: login, password: password}))
             .map((response: Response) => {
                 if (response.json().status === true && response.json().token) {
                     localStorage.setItem('token', response.json().token);
