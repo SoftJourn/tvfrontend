@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {LoginService} from './login.service';
 import {Router} from '@angular/router';
 
@@ -9,6 +9,8 @@ import {Router} from '@angular/router';
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+    @Output() username;
 
     model: any = {};
     loading = false;
@@ -27,6 +29,7 @@ export class LoginComponent implements OnInit {
         this.loginService.login(this.model.login, this.model.password)
             .subscribe(result => {
                 if (result === true) {
+                    this.username = result;
                     this.router.navigate(['/']);
                 } else {
                     this.error = 'Username or password is incorrect';
