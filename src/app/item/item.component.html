@@ -1,75 +1,77 @@
 <div class="row">
-    <div class="col-4" *ngFor="let item of items;">
-        <div class="listItem" data-id="{{item.id}}" id="{{item.id}}">
+    <ng-container *ngFor="let item of items;">
+        <div class="col-4" *ngIf="item.enabled == displayedItems">
+            <div class="listItem" data-id="{{item.id}}" id="{{item.id}}">
 
-            <!--<iframe *ngIf="item.type == 'youtube'" width="100%" height="100%"-->
-            <!--src="{{item.safeUrl}}" frameborder="0" allowfullscreen></iframe>-->
+                <!--<iframe *ngIf="item.type == 'youtube'" width="100%" height="100%"-->
+                <!--src="{{item.safeUrl}}" frameborder="0" allowfullscreen></iframe>-->
 
-            <a *ngIf="item.type == 'image'" href="" class="gallery">
-                <img src="{{apiServer + item.url}}" alt="">
-            </a>
-
-
-            <!--<?php if ($item->type == 'image') { ?>-->
-            <!--<a rel="sjtv" href="<?php echo $item->url; ?>" class="gallery">-->
-            <!--<img src="<?php echo $item->thumbnail; ?>" alt="">-->
-            <!--</a>-->
-            <!--<?php } elseif ($item->type == 'youtube') { ?>-->
-
-            <!--<?php } elseif ($item->type == 'facebook_post') { ?>-->
-            <!--<div class="fb-post"-->
-            <!--data-href="<?php echo $item->url; ?>"-->
-            <!--data-width="auto"-->
-            <!--data-show-text="false">-->
-            <!--</div>-->
-            <!--<?php } ?>-->
-            <!--<div class="settings hidden">-->
-            <!--<form action="index/updateItem/<?php echo $item->id; ?>" method="post">-->
-            <!--Created by: -->
-            <!--<?php echo $item->owner; ?>-->
-            <!--<br>-->
-            <!--Date: -->
-            <!--<?php echo date('d.n.Y H:i', $item->created); ?>-->
-            <!--<br>-->
-            <!--<?php if ($item->type == 'image') : ?>-->
-            <!--Display: <input type="number" name="duration" value="-->
-            <!--<?php echo $item->duration; ?>-->
-            <!--"-->
-            <!--class="durationInput updateItem" min="1" max="600">s<br>-->
-            <!--<?php elseif ($item->type == 'youtube') : ?>-->
-            <!--<div>-->
-            <!--<a href="#" class="playNow" data-id="<?php echo $item->id; ?>"-->
-            <!--data-volume="<?php echo $item->volumeLevel; ?>"><i class="fa fa-play"></i> Play now-->
-            <!--</a>-->
-            <!--</div>-->
-            <!--<label for="volumeLevel">Volume Level</label>-->
-            <!--<input type="range" min="0" max="100" step="1" name="volumeLevel" id="volumeLevel"-->
-            <!--class="updateItem" value="<?php echo $item->volumeLevel; ?>"/>-->
-            <!--<?php elseif ($item->type == 'facebook_post') : ?>-->
-            <!--Display: <input type="number" name="duration" value="<?php echo $item->duration; ?>"-->
-            <!--class="durationInput updateItem" min="1" max="600">s<br>-->
-            <!--<?php endif; ?>-->
-            <!--<div class="form-group item-time timepair-container">-->
-            <!--<strong>Time:</strong><br>-->
-            <!--From <input type="text" class="timepicker form-control startTime" name="startTime"/>-->
-            <!--to <input type="text" class="timepicker form-control endTime" name="endTime"/>-->
-            <!--</div>-->
-            <!--<div class="form-group item-date datepair-container" id="date-<?php echo $item->id; ?>">-->
-            <!--<strong>Date:</strong><br>-->
-            <!--From <input type="text" class="form-control datepicker startDate" name="startDate">-->
-            <!--to <input type="text" class="form-control datepicker endDate" name="endDate">-->
-            <!--</div>-->
-            <!--</form>-->
-            <!--</div>-->
-            <!--<div class=" icons">-->
-            <!--<a href="#" class="removeItem"><i class="fa fa-trash"></i></a>-->
-            <!--<a href="#" class="itemSettings"><i class="fa fa-cog"></i></a>-->
-            <!--<?php if($item->enabled): ?>-->
-            <!--<a href="#" class="disableItem"><i class="fa fa-ban"></i></a>-->
-            <!--<?php else: ?>-->
-            <!--<a href="#" class="enableItem"><i class="fa fa-play-circle"></i></a>-->
-            <!--<?php endif; ?>-->
-            <!--</div>-->
+                <a *ngIf="item.type == 'image'" href="" class="gallery">
+                    <img src="{{apiServer + item.url}}" alt="">
+                </a>
+            </div>
         </div>
-    </div>
+    </ng-container>
 </div>
+
+
+<!--<?php if ($item->type == 'image') { ?>-->
+<!--<a rel="sjtv" href="<?php echo $item->url; ?>" class="gallery">-->
+<!--<img src="<?php echo $item->thumbnail; ?>" alt="">-->
+<!--</a>-->
+<!--<?php } elseif ($item->type == 'youtube') { ?>-->
+
+<!--<?php } elseif ($item->type == 'facebook_post') { ?>-->
+<!--<div class="fb-post"-->
+<!--data-href="<?php echo $item->url; ?>"-->
+<!--data-width="auto"-->
+<!--data-show-text="false">-->
+<!--</div>-->
+<!--<?php } ?>-->
+<!--<div class="settings hidden">-->
+<!--<form action="index/updateItem/<?php echo $item->id; ?>" method="post">-->
+<!--Created by: -->
+<!--<?php echo $item->owner; ?>-->
+<!--<br>-->
+<!--Date: -->
+<!--<?php echo date('d.n.Y H:i', $item->created); ?>-->
+<!--<br>-->
+<!--<?php if ($item->type == 'image') : ?>-->
+<!--Display: <input type="number" name="duration" value="-->
+<!--<?php echo $item->duration; ?>-->
+<!--"-->
+<!--class="durationInput updateItem" min="1" max="600">s<br>-->
+<!--<?php elseif ($item->type == 'youtube') : ?>-->
+<!--<div>-->
+<!--<a href="#" class="playNow" data-id="<?php echo $item->id; ?>"-->
+<!--data-volume="<?php echo $item->volumeLevel; ?>"><i class="fa fa-play"></i> Play now-->
+<!--</a>-->
+<!--</div>-->
+<!--<label for="volumeLevel">Volume Level</label>-->
+<!--<input type="range" min="0" max="100" step="1" name="volumeLevel" id="volumeLevel"-->
+<!--class="updateItem" value="<?php echo $item->volumeLevel; ?>"/>-->
+<!--<?php elseif ($item->type == 'facebook_post') : ?>-->
+<!--Display: <input type="number" name="duration" value="<?php echo $item->duration; ?>"-->
+<!--class="durationInput updateItem" min="1" max="600">s<br>-->
+<!--<?php endif; ?>-->
+<!--<div class="form-group item-time timepair-container">-->
+<!--<strong>Time:</strong><br>-->
+<!--From <input type="text" class="timepicker form-control startTime" name="startTime"/>-->
+<!--to <input type="text" class="timepicker form-control endTime" name="endTime"/>-->
+<!--</div>-->
+<!--<div class="form-group item-date datepair-container" id="date-<?php echo $item->id; ?>">-->
+<!--<strong>Date:</strong><br>-->
+<!--From <input type="text" class="form-control datepicker startDate" name="startDate">-->
+<!--to <input type="text" class="form-control datepicker endDate" name="endDate">-->
+<!--</div>-->
+<!--</form>-->
+<!--</div>-->
+<!--<div class=" icons">-->
+<!--<a href="#" class="removeItem"><i class="fa fa-trash"></i></a>-->
+<!--<a href="#" class="itemSettings"><i class="fa fa-cog"></i></a>-->
+<!--<?php if($item->enabled): ?>-->
+<!--<a href="#" class="disableItem"><i class="fa fa-ban"></i></a>-->
+<!--<?php else: ?>-->
+<!--<a href="#" class="enableItem"><i class="fa fa-play-circle"></i></a>-->
+<!--<?php endif; ?>-->
+<!--</div>-->

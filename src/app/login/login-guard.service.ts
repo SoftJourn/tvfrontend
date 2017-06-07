@@ -13,6 +13,7 @@ export class LoginGuard implements CanActivate {
         if (tokenNotExpired('token')) {
             return true;
         }
+
         if (this.loginService.isLogin) {
             return true;
         }

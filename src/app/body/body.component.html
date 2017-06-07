@@ -1,6 +1,6 @@
 <div class="general-settings">
-    <app-common-settings></app-common-settings>
+    <app-common-settings (enabledItems)="changeEnabledItems($event)"></app-common-settings>
 </div>
 <div class="row playlist">
-    <app-item [items]="items"></app-item>
+    <app-item [items]="items" [displayedItems]="displayedItems"></app-item>
 </div>

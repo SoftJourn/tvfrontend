@@ -1,7 +1,7 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {SettingsService} from './settings.service';
 import 'rxjs/Rx';
-import {Subscription} from "rxjs/Subscription";
+import {Subscription} from 'rxjs/Subscription';
 
 
 @Component({
@@ -11,9 +11,12 @@ import {Subscription} from "rxjs/Subscription";
 })
 export class CommonSettingsComponent implements OnInit, OnDestroy {
 
+    @Output() enabledItems = new EventEmitter<boolean>();
+
     public showRandom;
     public order;
     public defaultDuration;
+    itemsTurn = true;
     settingsSubscription: Subscription;
 
     constructor(private settings: SettingsService) {
@@ -31,7 +34,6 @@ export class CommonSettingsComponent implements OnInit, OnDestroy {
     }
 
     orderChange() {
-        this.order = (this.order === 'random') ? 'date' : 'random';
         this.settings.saveOrder(this.showRandom).subscribe(
             (data) => {
                 console.log(data);
@@ -53,6 +55,10 @@ export class CommonSettingsComponent implements OnInit, OnDestroy {
                 console.log(data);
             }
         );
+    }
+
+    enableItemsChange() {
+        this.enabledItems.emit(this.itemsTurn);
     }
 
     ngOnDestroy() {

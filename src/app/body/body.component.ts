@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-body',
@@ -8,14 +8,18 @@ import {Component, Input, OnInit} from '@angular/core';
 export class BodyComponent implements OnInit {
 
   @Input() items;
-  public order;
-  public defaultDuration;
+
+  displayedItems = true;
 
   constructor() {
   }
 
   ngOnInit() {
-    // this.order = this.playlist.order;
-    // this.defaultDuration = this.playlist.defaultDuration;
   }
+
+  changeEnabledItems(enabled: boolean) {
+    this.displayedItems = enabled;
+  }
+
+
 }

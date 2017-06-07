@@ -21,7 +21,7 @@
 
     <div class="col-2">
         <ngl-form-checkbox-toggle label="Items to show" class="order-playlist">
-            <input nglFormControl type="checkbox"/>
+            <input nglFormControl type="checkbox" (change)="enableItemsChange()" [(ngModel)]="itemsTurn"/>
         </ngl-form-checkbox-toggle>
     </div>
 

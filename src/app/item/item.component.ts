@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AppSettings} from '../config/app.config';
+import {Item} from "./item.model";
 
 
 @Component({
@@ -9,13 +10,15 @@ import {AppSettings} from '../config/app.config';
 })
 export class ItemComponent implements OnInit {
 
-  @Input() items;
+  @Input() items: Item[];
+  @Input() displayedItems;
 
   apiServer = AppSettings.API_SERVER;
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.displayedItems);
   }
 
 }
