@@ -20,6 +20,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NglModule} from 'ng-lightning/ng-lightning';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {ItemService} from './item/item.service';
+import { YoutubePipe } from './pipes/youtube.pipe';
 
 export function getAuthHttp(http) {
     return new AuthHttp(new AuthConfig({
@@ -39,7 +40,8 @@ export function getAuthHttp(http) {
         BodyComponent,
         CommonSettingsComponent,
         LoginComponent,
-        DashboardComponent
+        DashboardComponent,
+        YoutubePipe,
     ],
     imports: [
         BrowserModule,
