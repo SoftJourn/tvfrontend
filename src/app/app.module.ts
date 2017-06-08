@@ -19,6 +19,7 @@ import {SettingsService} from './common-settings/settings.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NglModule} from 'ng-lightning/ng-lightning';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ItemService} from './item/item.service';
 
 export function getAuthHttp(http) {
     return new AuthHttp(new AuthConfig({
@@ -54,6 +55,7 @@ export function getAuthHttp(http) {
         LoginGuard,
         DashboardService,
         SettingsService,
+        ItemService,
         {
             provide: AuthHttp,
             useFactory: getAuthHttp,

@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AppSettings} from '../config/app.config';
-import {Item} from "./item.model";
+import {Item} from './item.model';
+import {ItemService} from './item.service';
 
 
 @Component({
@@ -15,10 +16,14 @@ export class ItemComponent implements OnInit {
 
   apiServer = AppSettings.API_SERVER;
 
-  constructor() { }
+  constructor(private ItemService: ItemService) { }
 
   ngOnInit() {
-    console.log(this.displayedItems);
+  }
+
+  deleteItem(id: string){
+    this.ItemService.deleteItem(id).subscribe(
+    );
   }
 
 }

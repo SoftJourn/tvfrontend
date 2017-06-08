@@ -1,4 +1,4 @@
 export class AppSettings {
-    public static API_SERVER = 'http://tv.dev';
-    public static API_URL = 'http://tv.dev/api';
+    public static API_SERVER = 'https://tv.testing.softjourn.if.ua';
+    public static API_URL = 'https://tv.testing.softjourn.if.ua/api';
 }

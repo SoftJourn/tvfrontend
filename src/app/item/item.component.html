@@ -10,10 +10,10 @@
                     <img src="{{apiServer + item.url}}" alt="">
                 </a>
                 <div class=" icons">
-                    <a (click)="deleteItem()"><i class="fa fa-trash"></i></a>
-                    <a (click)="showSettings()"><i class="fa fa-cog"></i></a>
-                    <a *ngIf="item.enabled" (click)="disableItem()"><i class="fa fa-ban"></i></a>
-                    <a *ngIf="!item.enabled" (click)="enableItem()"><i class="fa fa-play-circle"></i></a>
+                    <a (click)="deleteItem(item.id)"><i class="fa fa-trash"></i></a>
+                    <a (click)="showSettings(item.id)"><i class="fa fa-cog"></i></a>
+                    <a *ngIf="item.enabled" (click)="disableItem(item.id)"><i class="fa fa-ban"></i></a>
+                    <a *ngIf="!item.enabled" (click)="enableItem(item.id)"><i class="fa fa-play-circle"></i></a>
                 </div>
             </div>
         </div>

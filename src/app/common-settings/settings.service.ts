@@ -4,12 +4,11 @@ import {AppSettings} from '../config/app.config';
 import {AuthHttp} from 'angular2-jwt';
 import {Observable} from 'rxjs/Rx';
 
-const playNextUrl = '/playlist/playNext';
-
 @Injectable()
 export class SettingsService {
 
     private settingsUrl = '/settings';
+    private playNextUrl = '/playlist/playNext';
 
     constructor(private authHttp: AuthHttp) {
     }
@@ -33,7 +32,7 @@ export class SettingsService {
     }
 
     playNext() {
-        return this.authHttp.get(AppSettings.API_URL + playNextUrl)
+        return this.authHttp.get(AppSettings.API_URL + this.playNextUrl)
             .map((response: Response) => { return response.json(); })
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
