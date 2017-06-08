@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {AppSettings} from '../config/app.config';
-import {Item} from "./item.model";
+import {Item} from './item.model';
 
 
 @Component({
