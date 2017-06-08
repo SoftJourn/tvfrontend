@@ -3,11 +3,11 @@
         <div class="col-4" *ngIf="item.enabled == displayedItems">
             <div class="listItem" data-id="{{item.id}}" id="{{item.id}}">
 
-                <!--<iframe *ngIf="item.type == 'youtube'" width="100%" height="100%"-->
-                <!--src="{{item.safeUrl}}" frameborder="0" allowfullscreen></iframe>-->
+                <iframe *ngIf="item.type == 'youtube'" width="100%" height="100%"
+                [src]="item.id | youtube" frameborder="0" allowfullscreen></iframe>
 
                 <a *ngIf="item.type == 'image'" href="" class="gallery">
-                    <img src="{{apiServer + item.url}}" alt="">
+                    <img src="{{item.url}}" alt="">
                 </a>
                 <div class=" icons">
                     <a (click)="deleteItem()"><i class="fa fa-trash"></i></a>
